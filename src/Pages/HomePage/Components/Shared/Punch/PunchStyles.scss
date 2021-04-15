@@ -1,0 +1,20 @@
+.punch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  padding: 10px 16px;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  background: #ccddff;
+  cursor: pointer;
+  text-decoration: none;
+
+  .punch-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    color: #001133;
+    line-height: normal;
+  }
+}
