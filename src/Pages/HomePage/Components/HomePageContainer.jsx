@@ -10,7 +10,7 @@ class HomePageContainer extends Component {
     const asyncFuncRequest = async () => {
       try {
         const punchesResponse = await fetch(
-          "https://punches-encyclopedia-f1b45-default-rtdb.firebaseio.com/users.json"
+          "https://punches-encyclopedia-f1b45-default-rtdb.firebaseio.com/punches.json"
         );
 
         const punches = await punchesResponse.json();

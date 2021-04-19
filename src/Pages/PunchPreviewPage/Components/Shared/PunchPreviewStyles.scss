@@ -1,0 +1,48 @@
+.punch-preview-content {
+  padding: 20px 0;
+
+  .punch-preview-content-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .punch-preview-content-heading {
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      color: #001133;
+      padding: 10px 0 20px;
+    }
+  }
+  .punch-preview-data {
+    width: 60%;
+    margin: auto;
+    padding-top: 2%;
+
+    & > * {
+      font-size: 1.5em;
+      color: #001133;
+    }
+
+    h4,
+    p {
+      width: 70%;
+      margin-left: 5%;
+      line-height: normal;
+    }
+
+    label {
+      width: 25%;
+      font-weight: bold;
+      vertical-align: top;
+    }
+
+    .punch-preview-type,
+    .punch-preview-contents,
+    .punch-preview-description {
+      padding-top: 7%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
