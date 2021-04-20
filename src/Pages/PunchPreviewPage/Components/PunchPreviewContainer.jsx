@@ -38,7 +38,7 @@ class PunchPreviewContainer extends Component {
         });
       } catch (error) {
         this.setState({
-          error,
+          error: error.message,
         });
       }
     };
@@ -47,7 +47,7 @@ class PunchPreviewContainer extends Component {
 
   render() {
     const { punch, error } = this.state;
-    if (error) return <h1 style={{ textAlign: "center" }}>{error.message}</h1>;
+    if (error) return <h1 style={{ textAlign: "center" }}>{error}</h1>;
     return <PunchPreview punch={punch} />;
   }
 }

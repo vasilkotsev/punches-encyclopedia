@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import PunchList from "./Shared/PunchList/PunchList";
+import SearchBox from "../../../Components/SearchBox/SearchBox";
 
 class HomePageContainer extends Component {
   state = {
     punches: [],
+    error: null,
+    searchField: "",
+  };
+
+  handleChange = (event) => {
+    this.setState({ searchField: event.target.value });
   };
 
   componentDidMount() {
@@ -19,14 +26,29 @@ class HomePageContainer extends Component {
           punches,
         });
       } catch (error) {
-        console.log(error.message);
+        this.setState({ error: error.message });
       }
     };
     asyncFuncRequest();
   }
 
   render() {
-    return <PunchList punches={this.state.punches} />;
+    const { punches, error, searchField } = this.state;
+
+    const filteredPunches = punches.filter((punch) =>
+      punch.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+    if (error) return <p style={{ textAlign: "center" }}>{error}</p>;
+
+    return (
+      <React.Fragment>
+        <SearchBox
+          placeholder="Search punches"
+          handleChange={this.handleChange}
+        />
+        <PunchList punches={filteredPunches} />
+      </React.Fragment>
+    );
   }
 }
 
