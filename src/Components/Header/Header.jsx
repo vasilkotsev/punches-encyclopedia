@@ -7,7 +7,7 @@ const Header = ({ title }) => {
   return (
     <header className="header">
       <Link className="header-link" to="/punches">
-        <h1 className="title">{title}</h1>
+        {title}
       </Link>
       <hr className="section-divider" />
     </header>
