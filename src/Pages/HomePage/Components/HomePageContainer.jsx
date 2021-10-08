@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PunchList from "./Shared/PunchList/PunchList";
-import SearchBox from "../../../Components/SearchBox/SearchBox";
+import SearchBox from "../../../Common/Components/SearchBox/SearchBox";
 
 class HomePageContainer extends Component {
   state = {

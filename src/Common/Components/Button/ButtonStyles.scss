@@ -1,0 +1,16 @@
+.back-btn {
+  font-weight: 600;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background: darkcyan;
+  color: #fff;
+
+  &:hover {
+    background: darken(darkcyan, 5%)
+  }
+}
