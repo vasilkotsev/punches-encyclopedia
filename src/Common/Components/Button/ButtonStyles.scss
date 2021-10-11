@@ -7,10 +7,16 @@
   border-radius: 7px;
   outline: none;
   border: none;
-  background: darkcyan;
+  background: rgb(2, 124, 124);
   color: #fff;
+  text-transform: uppercase;
+  -webkit-transition: 0.15s ease;
+  -moz-transition: 0.15s ease;
+  -o-transition: 0.15s ease;
+  -ms-transition: 0.15s ease;
+  transition: 0.15s ease;
 
   &:hover {
-    background: darken(darkcyan, 5%)
+    background: darken(rgb(2, 124, 124), 5%);
   }
 }

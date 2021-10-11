@@ -1,11 +1,20 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./ButtonStyles.scss";
 
-const Button = ({ history }) => (
-  <button className="back-btn" onClick={() => history.goBack()}>
-    BACK
+const Button = ({ text, onClick }) => (
+  <button className="back-btn" onClick={onClick}>
+    {text}
   </button>
 );
 
-export default withRouter(Button);
+Button.defaultProps = {
+  text: "Back"
+};
+
+Button.propTypes = {
+  text: PropTypes.string,
+  onClick: PropTypes.func.isRequired
+};
+
+export default Button;
