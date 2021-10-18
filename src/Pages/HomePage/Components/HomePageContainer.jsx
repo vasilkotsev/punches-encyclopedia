@@ -6,7 +6,7 @@ class HomePageContainer extends Component {
   state = {
     punches: [],
     error: null,
-    isLoading: true,
+    isLoaded: false,
     searchField: ""
   };
 
@@ -23,17 +23,17 @@ class HomePageContainer extends Component {
 
       this.setState({
         punches,
-        isLoading: false
+        isLoaded: true
       });
     } catch (error) {
-      this.setState({ error: error.message, isLoading: false });
+      this.setState({ error: error.message, isLoaded: true });
     }
   }
 
   render() {
-    const { punches, error, searchField, isLoading } = this.state;
+    const { punches, error, searchField, isLoaded } = this.state;
 
-    if (isLoading)
+    if (!isLoaded)
       return (
         <h2
           style={{ fontSize: "3rem", textAlign: "center", paddingTop: "25px" }}

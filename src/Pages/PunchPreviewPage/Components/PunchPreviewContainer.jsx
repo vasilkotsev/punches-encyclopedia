@@ -6,7 +6,7 @@ class PunchPreviewContainer extends Component {
   state = {
     punch: {},
     error: null,
-    isLoading: true
+    isLoaded: false
   };
 
   mapToViewModel = punch => {
@@ -35,19 +35,19 @@ class PunchPreviewContainer extends Component {
 
       this.setState({
         punch: this.mapToViewModel(punch),
-        isLoading: false
+        isLoaded: true
       });
     } catch (error) {
       this.setState({
         error: error.message,
-        isLoading: false
+        isLoaded: true
       });
     }
   }
 
   render() {
-    const { punch, error, isLoading } = this.state;
-    if (isLoading)
+    const { punch, error, isLoaded } = this.state;
+    if (!isLoaded)
       return (
         <h2
           style={{ fontSize: "3rem", textAlign: "center", paddingTop: "25px" }}
