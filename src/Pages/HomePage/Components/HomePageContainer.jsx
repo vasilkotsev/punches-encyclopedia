@@ -6,6 +6,7 @@ class HomePageContainer extends Component {
   state = {
     punches: [],
     error: null,
+    isLoading: true,
     searchField: ""
   };
 
@@ -18,25 +19,37 @@ class HomePageContainer extends Component {
       const punchesResponse = await fetch(
         "https://punches-encyclopedia-f1b45-default-rtdb.firebaseio.com/punches.json"
       );
-
       const punches = await punchesResponse.json();
 
       this.setState({
-        punches
+        punches,
+        isLoading: false
       });
     } catch (error) {
-      this.setState({ error: error.message });
+      this.setState({ error: error.message, isLoading: false });
     }
   }
 
   render() {
-    const { punches, error, searchField } = this.state;
+    const { punches, error, searchField, isLoading } = this.state;
 
     const filteredPunches = punches.filter(punch =>
       punch.name.toLowerCase().includes(searchField.toLowerCase())
     );
-    if (error) return <p style={{ textAlign: "center" }}>{error}</p>;
-
+    if (isLoading)
+      return (
+        <h2
+          style={{ fontSize: "3rem", textAlign: "center", paddingTop: "25px" }}
+        >
+          LOADING...
+        </h2>
+      );
+    if (error)
+      return (
+        <h2 style={{ textAlign: "center", paddingTop: "25px" }}>
+          Error: {error}
+        </h2>
+      );
     return (
       <React.Fragment>
         <SearchBox

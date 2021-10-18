@@ -5,7 +5,8 @@ import PunchPreview from "./Shared/PunchPreview";
 class PunchPreviewContainer extends Component {
   state = {
     punch: {},
-    error: null
+    error: null,
+    isLoading: true
   };
 
   mapToViewModel = punch => {
@@ -33,18 +34,33 @@ class PunchPreviewContainer extends Component {
       if (!punch) return this.props.history.replace("/not-found");
 
       this.setState({
-        punch: this.mapToViewModel(punch)
+        punch: this.mapToViewModel(punch),
+        isLoading: false
       });
     } catch (error) {
       this.setState({
-        error: error.message
+        error: error.message,
+        isLoading: false
       });
     }
   }
 
   render() {
-    const { punch, error } = this.state;
-    if (error) return <h1 style={{ textAlign: "center" }}>{error}</h1>;
+    const { punch, error, isLoading } = this.state;
+    if (isLoading)
+      return (
+        <h2
+          style={{ fontSize: "3rem", textAlign: "center", paddingTop: "25px" }}
+        >
+          LOADING...
+        </h2>
+      );
+    if (error)
+      return (
+        <h2 style={{ textAlign: "center", paddingTop: "25px" }}>
+          Error: {error}
+        </h2>
+      );
     return <PunchPreview punch={punch} />;
   }
 }
