@@ -33,9 +33,6 @@ class HomePageContainer extends Component {
   render() {
     const { punches, error, searchField, isLoading } = this.state;
 
-    const filteredPunches = punches.filter(punch =>
-      punch.name.toLowerCase().includes(searchField.toLowerCase())
-    );
     if (isLoading)
       return (
         <h2
@@ -50,6 +47,11 @@ class HomePageContainer extends Component {
           Error: {error}
         </h2>
       );
+
+    const filteredPunches = punches.filter(punch =>
+      punch.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+
     return (
       <React.Fragment>
         <SearchBox
