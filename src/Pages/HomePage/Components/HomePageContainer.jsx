@@ -56,7 +56,8 @@ class HomePageContainer extends Component {
       <React.Fragment>
         <SearchBox
           placeholder="Search punches"
-          handleChange={this.handleChange}
+          value={this.state.searchField}
+          onChange={this.handleChange}
         />
         <PunchList punches={filteredPunches} />
       </React.Fragment>
